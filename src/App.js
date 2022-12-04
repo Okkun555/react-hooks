@@ -1,33 +1,22 @@
 import React, { useState } from "react";
+import SampleUseEffect from "./components/SampleUseEffect";
+import SampleUseState from "./components/SampleUseState";
 
 const App = (props) => {
-  const [state, setState] = useState(props);
-
-  const reset = () => setState(props);
+  const [type, setType] = useState("useState");
 
   return (
     <>
-      <p>
-        現在の{state.name}は{state.price}円です。
-      </p>
-      <button onClick={() => setState({ ...state, price: state.price + 100 })}>
-        +100
-      </button>
-      <button onClick={() => setState({ ...state, price: state.price - 100 })}>
-        -100
-      </button>
-      <button onClick={reset}>Reset</button>
-      <input
-        value={state.name}
-        onChange={(e) => setState({ ...state, name: e.target.value })}
-      />
+      <div className="btn-container">
+        <button onClick={() => setType("useState")}>Sample useState</button>
+        <button onClick={() => setType("useEffect")}>Sample useEffect</button>
+      </div>
+      <div className="sample-container">
+        {type === "useState" && <SampleUseState name="" price={1000} />}
+        {type === "useEffect" && <SampleUseEffect name="" price={1000} />}
+      </div>
     </>
   );
-};
-
-App.defaultProps = {
-  name: "",
-  price: 1000,
 };
 
 export default App;
