@@ -1,5 +1,7 @@
 import React, { useState, useReducer } from "react";
 import reducer from "../../reducers";
+
+import Event from "./Event";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Demo = () => {
@@ -25,8 +27,6 @@ const Demo = () => {
     e.preventDefault();
     dispatch({ type: "DELETE_ALL_EVENTS" });
   };
-
-  console.log(state);
 
   return (
     <div className="container">
@@ -72,7 +72,11 @@ const Demo = () => {
             <th></th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {state.map((event, index) => (
+            <Event event={event} dispatch={dispatch} key={index} />
+          ))}
+        </tbody>
       </table>
     </div>
   );
