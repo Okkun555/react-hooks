@@ -25,8 +25,15 @@ const Demo = () => {
 
   const deleteAllEvent = (e) => {
     e.preventDefault();
-    dispatch({ type: "DELETE_ALL_EVENTS" });
+    const result = window.confirm(
+      "全てのイベントを本当に削除しても良いですか？"
+    );
+
+    if (result) dispatch({ type: "DELETE_ALL_EVENTS" });
   };
+
+  const unCreate = title === "" || body === "";
+  const unDelete = state.length === 0;
 
   return (
     <div className="container">
@@ -54,10 +61,18 @@ const Demo = () => {
           />
         </div>
 
-        <button onClick={addEvent} className="btn btn-primary">
+        <button
+          onClick={addEvent}
+          className="btn btn-primary"
+          disabled={unCreate}
+        >
           イベントを作成する
         </button>
-        <button onClick={deleteAllEvent} className="btn btn-danger ml-2">
+        <button
+          onClick={deleteAllEvent}
+          className="btn btn-danger ml-2"
+          disabled={unDelete}
+        >
           全てのイベントを削除する
         </button>
       </form>

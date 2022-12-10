@@ -8,7 +8,6 @@ const events = (state = [], action) => {
 
       return [...state, { id, ...event }];
     case "DELETE_EVENT":
-      // TODO: 削除処理
       return state.filter((event) => event.id !== action.id);
     case "DELETE_ALL_EVENTS":
       return [];
