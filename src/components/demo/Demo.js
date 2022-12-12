@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import reducer from "../../reducers";
+import AppContext from "../../contexts/AppContext";
 
 import EventForm from "./EventForm";
 import Events from "./Events";
@@ -10,10 +11,12 @@ const Demo = () => {
   const [state, dispatch] = useReducer(reducer, []);
 
   return (
-    <div className="container">
-      <EventForm state={state} dispatch={dispatch} />
-      <Events state={state} dispatch={dispatch} />
-    </div>
+    <AppContext.Provider value={{ state, dispatch }}>
+      <div className="container">
+        <EventForm />
+        <Events />
+      </div>
+    </AppContext.Provider>
   );
 };
 
