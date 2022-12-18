@@ -102,6 +102,13 @@ const EventForm = () => {
         >
           全ての操作ログを削除する
         </button>
+
+        <button
+          onClick={() => localStorage.clear()}
+          className="btn btn-success ml-2"
+        >
+          LocalStorageの値を削除
+        </button>
       </form>
     </>
   );
