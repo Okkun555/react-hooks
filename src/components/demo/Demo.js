@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Demo = () => {
   const initialState = {
     events: [],
+    operationLogs: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
