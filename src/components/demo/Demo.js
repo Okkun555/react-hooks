@@ -7,8 +7,13 @@ import Events from "./Events";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Demo = () => {
+  const initialState = {
+    events: [],
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   // NOTE: useReducer(reducer, 初期状態, 初期化時に実施したい処理)
-  const [state, dispatch] = useReducer(reducer, []);
+  // const [state, dispatch] = useReducer(reducer, []);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>

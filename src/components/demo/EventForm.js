@@ -30,7 +30,7 @@ const EventForm = () => {
   };
 
   const unCreate = title === "" || body === "";
-  const unDelete = state.length === 0;
+  const unDelete = state.events.length === 0;
 
   return (
     <>
