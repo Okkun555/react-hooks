@@ -48,6 +48,11 @@ const EventForm = () => {
     }
   };
 
+  const deleteAllOperationLogs = (e) => {
+    e.preventDefault();
+    dispatch({ type: DELETE_ALL_OPERATION_LOG });
+  };
+
   const unCreate = title === "" || body === "";
   const unDelete = state.events.length === 0;
 
@@ -90,6 +95,12 @@ const EventForm = () => {
           disabled={unDelete}
         >
           全てのイベントを削除する
+        </button>
+        <button
+          onClick={deleteAllOperationLogs}
+          className="btn btn-danger ml-2"
+        >
+          全ての操作ログを削除する
         </button>
       </form>
     </>

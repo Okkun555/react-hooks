@@ -4,6 +4,7 @@ import AppContext from "../../contexts/AppContext";
 
 import EventForm from "./EventForm";
 import Events from "./Events";
+import OperationLogs from "./OperationLogs";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Demo = () => {
@@ -21,6 +22,9 @@ const Demo = () => {
       <div className="container">
         <EventForm />
         <Events />
+      </div>
+      <div className="container">
+        <OperationLogs />
       </div>
     </AppContext.Provider>
   );
